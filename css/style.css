@@ -1,8 +1,8 @@
 *{
     margin: 0;
 	padding: 0;
-	border:none;
-	outline:none;
+	border: none;
+	outline: none;
 }
 
 body{
@@ -84,6 +84,11 @@ button#stop{
 	background:url(../images/stop.png)no-repeat;float:left;
 }
 
+#playlist{
+	list-style-type:none;
+	padding:10px;
+	}
+
 #playlist li{
 	cursor:pointer;
 	margin:5px;
@@ -115,7 +120,7 @@ button#stop{
 	display:inline-block;
 }
 
-#duracion{
+#duration{
 	position:absolute;
 	top:0;
 	right:10px;

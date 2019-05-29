@@ -19,12 +19,13 @@ if(!audio.currentTime){
 	$('#duration').html('0.00');
 }
 
-$('#audio-player.title').text(title);
-$('#audio-player.artist').text(artist);
+$('#audio-player .title').text(title);
+$('#audio-player .artist').text(artist);
 
 //insert cover image
-$('#img.cover').attr('src','images/covers/' +  cover);
-elemement.addClass('active'); 
+$('img.cover').attr('src','images/covers/' +  cover);
+$('#playlist li').removeClass('active');
+element.addClass('active'); 
 }
    
 //play button
@@ -60,11 +61,12 @@ $('#playlist li').click(function(){
 	$('#play').hide()
 	$('#pause').show();
 	$('#duration').fadeIn(400);
+	audio.play();
 	showDuration();
 });
 
 //volume control
-$('#volume').click(function(){
+$('#volume').change(function(){
 	audio.volume = parseFloat(this.value/10);
 });
 
@@ -72,20 +74,19 @@ $('#volume').click(function(){
 function showDuration(){
 	$(audio).bind('timeupdate',function(){
 		//gets hours and minutes
-		var s = parseInt(audio.currentTime%60);
-		var m = parseInt((audio.currentTime/60)%60);
+		var s = parseInt(audio.currentTime % 60);
+		var m = parseInt((audio.currentTime / 60) %60);
 		//add 0 if seconds less than 10
-		if(s<10){
-			s= '0' + s;
+		if(s < 10){
+			s = '0' + s;
 		}
 		$('#duration').html(m + '.' + s);
-		var value=0;
-		if(audio.currentTime>0){
-			value=Math.floor((100/audio.duration)*audio.currentTime);
+		var value = 0;
+		if(audio.currentTime > 0){
+			value=Math.floor((100/audio.duration) * audio.currentTime);
 			}
-			$('#progress').css('width',value +'%');
+			$('#progress').css('width',value+'%');
 });
-
 }
 
 
