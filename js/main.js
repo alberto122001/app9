@@ -1,10 +1,10 @@
 var audio;
 
 //Hide Pause Initially
-$('pause').hide();
+$('#pause').hide();
 
 //initializer-play firts song
-initAudio($('playlist li:first-child'));
+initAudio($('#playlist li:first-child'));
   
    function initAudio(element){
 	   var song = element.attr('song');
